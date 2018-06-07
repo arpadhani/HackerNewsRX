@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32CB8A2563020F425B9C78C0 /* Pods_HackerNewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E941AF79F97C3756A07BE58 /* Pods_HackerNewsApp.framework */; };
 		FC6402B920C99F6300D81B96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402B820C99F6300D81B96 /* AppDelegate.swift */; };
-		FC6402BB20C99F6300D81B96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402BA20C99F6300D81B96 /* ViewController.swift */; };
+		FC6402BB20C99F6300D81B96 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402BA20C99F6300D81B96 /* BaseViewController.swift */; };
 		FC6402BE20C99F6300D81B96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6402BC20C99F6300D81B96 /* Main.storyboard */; };
 		FC6402C020C99F6600D81B96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC6402BF20C99F6600D81B96 /* Assets.xcassets */; };
 		FC6402C320C99F6600D81B96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6402C120C99F6600D81B96 /* LaunchScreen.storyboard */; };
+		FC6402CB20C9A6DA00D81B96 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402CA20C9A6DA00D81B96 /* Items.swift */; };
+		FC6402CD20C9A76F00D81B96 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402CC20C9A76F00D81B96 /* ItemType.swift */; };
+		FC6402CF20C9B19500D81B96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402CE20C9B19500D81B96 /* User.swift */; };
+		FC6402D220C9C65900D81B96 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402D120C9C65900D81B96 /* Coordinator.swift */; };
+		FC6402D420C9C82C00D81B96 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402D320C9C82C00D81B96 /* NewsCoordinator.swift */; };
+		FC6402D620C9C87000D81B96 /* ItemDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402D520C9C87000D81B96 /* ItemDetailCoordinator.swift */; };
+		FC6402DA20C9CB0A00D81B96 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402D920C9CB0A00D81B96 /* TableViewController.swift */; };
+		FC6402DC20C9CFC500D81B96 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402DB20C9CFC500D81B96 /* BaseTableViewController.swift */; };
+		FC6402DF20C9D54B00D81B96 /* NewsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402DE20C9D54B00D81B96 /* NewsTableViewModel.swift */; };
+		FC6402E120C9D56100D81B96 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402E020C9D56100D81B96 /* ItemCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B2A71A3D9F4D8A6B5C23EA5 /* Pods-HackerNewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNewsApp/Pods-HackerNewsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0E941AF79F97C3756A07BE58 /* Pods_HackerNewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67C206DEBE14D4B3A6A713AC /* Pods-HackerNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNewsApp/Pods-HackerNewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		FC6402B520C99F6300D81B96 /* HackerNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC6402B820C99F6300D81B96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC6402BA20C99F6300D81B96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC6402BA20C99F6300D81B96 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FC6402BD20C99F6300D81B96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC6402BF20C99F6600D81B96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC6402C220C99F6600D81B96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC6402C420C99F6600D81B96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC6402CA20C9A6DA00D81B96 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		FC6402CC20C9A76F00D81B96 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		FC6402CE20C9B19500D81B96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FC6402D120C9C65900D81B96 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		FC6402D320C9C82C00D81B96 /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
+		FC6402D520C9C87000D81B96 /* ItemDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailCoordinator.swift; sourceTree = "<group>"; };
+		FC6402D920C9CB0A00D81B96 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FC6402DB20C9CFC500D81B96 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		FC6402DE20C9D54B00D81B96 /* NewsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewModel.swift; sourceTree = "<group>"; };
+		FC6402E020C9D56100D81B96 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32CB8A2563020F425B9C78C0 /* Pods_HackerNewsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EF207C98AAA0C1DAAE2F597 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B2A71A3D9F4D8A6B5C23EA5 /* Pods-HackerNewsApp.debug.xcconfig */,
+				67C206DEBE14D4B3A6A713AC /* Pods-HackerNewsApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ADA5EFB059AF6E3F74EEF62A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E941AF79F97C3756A07BE58 /* Pods_HackerNewsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FC6402AC20C99F6300D81B96 = {
 			isa = PBXGroup;
 			children = (
 				FC6402B720C99F6300D81B96 /* HackerNewsApp */,
 				FC6402B620C99F6300D81B96 /* Products */,
+				7EF207C98AAA0C1DAAE2F597 /* Pods */,
+				ADA5EFB059AF6E3F74EEF62A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +99,55 @@
 			isa = PBXGroup;
 			children = (
 				FC6402B820C99F6300D81B96 /* AppDelegate.swift */,
-				FC6402BA20C99F6300D81B96 /* ViewController.swift */,
+				FC6402DD20C9D53800D81B96 /* ViewModels */,
+				FC6402D820C9C94C00D81B96 /* ViewControllers */,
+				FC6402D720C9C93800D81B96 /* Coordinators */,
+				FC6402D020C9B27000D81B96 /* Models */,
 				FC6402BC20C99F6300D81B96 /* Main.storyboard */,
 				FC6402BF20C99F6600D81B96 /* Assets.xcassets */,
 				FC6402C120C99F6600D81B96 /* LaunchScreen.storyboard */,
 				FC6402C420C99F6600D81B96 /* Info.plist */,
 			);
 			path = HackerNewsApp;
+			sourceTree = "<group>";
+		};
+		FC6402D020C9B27000D81B96 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC6402CC20C9A76F00D81B96 /* ItemType.swift */,
+				FC6402CA20C9A6DA00D81B96 /* Items.swift */,
+				FC6402CE20C9B19500D81B96 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC6402D720C9C93800D81B96 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				FC6402D120C9C65900D81B96 /* Coordinator.swift */,
+				FC6402D320C9C82C00D81B96 /* NewsCoordinator.swift */,
+				FC6402D520C9C87000D81B96 /* ItemDetailCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		FC6402D820C9C94C00D81B96 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC6402BA20C99F6300D81B96 /* BaseViewController.swift */,
+				FC6402DB20C9CFC500D81B96 /* BaseTableViewController.swift */,
+				FC6402D920C9CB0A00D81B96 /* TableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FC6402DD20C9D53800D81B96 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FC6402E020C9D56100D81B96 /* ItemCellViewModel.swift */,
+				FC6402DE20C9D54B00D81B96 /* NewsTableViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC6402C720C99F6600D81B96 /* Build configuration list for PBXNativeTarget "HackerNewsApp" */;
 			buildPhases = (
+				4F32B41D10A43FA339D45940 /* [CP] Check Pods Manifest.lock */,
 				FC6402B120C99F6300D81B96 /* Sources */,
 				FC6402B220C99F6300D81B96 /* Frameworks */,
 				FC6402B320C99F6300D81B96 /* Resources */,
+				8DBF5279EDE88354D4CE834F /* [CP] Embed Pods Frameworks */,
+				9CB8457EBD9EC27A7CAD5F66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,13 +219,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F32B41D10A43FA339D45940 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackerNewsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DBF5279EDE88354D4CE834F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackerNewsApp/Pods-HackerNewsApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackerNewsApp/Pods-HackerNewsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CB8457EBD9EC27A7CAD5F66 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackerNewsApp/Pods-HackerNewsApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FC6402B120C99F6300D81B96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC6402BB20C99F6300D81B96 /* ViewController.swift in Sources */,
+				FC6402D420C9C82C00D81B96 /* NewsCoordinator.swift in Sources */,
+				FC6402BB20C99F6300D81B96 /* BaseViewController.swift in Sources */,
+				FC6402DC20C9CFC500D81B96 /* BaseTableViewController.swift in Sources */,
 				FC6402B920C99F6300D81B96 /* AppDelegate.swift in Sources */,
+				FC6402D220C9C65900D81B96 /* Coordinator.swift in Sources */,
+				FC6402E120C9D56100D81B96 /* ItemCellViewModel.swift in Sources */,
+				FC6402D620C9C87000D81B96 /* ItemDetailCoordinator.swift in Sources */,
+				FC6402CD20C9A76F00D81B96 /* ItemType.swift in Sources */,
+				FC6402CF20C9B19500D81B96 /* User.swift in Sources */,
+				FC6402CB20C9A6DA00D81B96 /* Items.swift in Sources */,
+				FC6402DA20C9CB0A00D81B96 /* TableViewController.swift in Sources */,
+				FC6402DF20C9D54B00D81B96 /* NewsTableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +435,7 @@
 		};
 		FC6402C820C99F6600D81B96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B2A71A3D9F4D8A6B5C23EA5 /* Pods-HackerNewsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +454,7 @@
 		};
 		FC6402C920C99F6600D81B96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67C206DEBE14D4B3A6A713AC /* Pods-HackerNewsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
