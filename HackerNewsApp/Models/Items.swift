@@ -32,7 +32,6 @@ class Item {
 class StoryBase: Item {
     let username: String
     let descendants: Int
-    let kids: [Int]
     let score: Int
     let title: String
 
@@ -40,7 +39,6 @@ class StoryBase: Item {
         guard
             let username =  json["by"].string,
             let descendants = json["descendants"].int,
-            let kids = json["kids"].array,
             let score = json["score"].int,
             let title = json["title"].string
         else {
@@ -49,7 +47,6 @@ class StoryBase: Item {
 
         self.username = username
         self.descendants = descendants
-        self.kids = kids.map { $0.intValue }
         self.score = score
         self.title = title
 
