@@ -11,12 +11,13 @@ import UIKit
 
 final class NewsCoordinator: Coordinability {
     var childCoordinators: [Coordinability] = []
-    private var baseVC: BaseViewController?
-    private var newsViewController: TableViewController!
-    private var nav: UINavigationController!
+    private var nav: UINavigationController?
+    private var viewModel = NewsTableViewModel()
+    private var newsService = HackerNewsService()
+    private var window: UIWindow?
 
-    init(baseVC: BaseViewController) {
-        self.baseVC = baseVC
+    init(window: UIWindow?) {
+        self.window = window
     }
 
     func start() {
@@ -26,8 +27,39 @@ final class NewsCoordinator: Coordinability {
         }
 
         self.nav = UINavigationController(rootViewController: newsVC)
-        self.newsViewController = newsVC
+        newsVC.viewModel = viewModel
 
-        baseVC?.present(nav, animated: true, completion: nil)
+        window?.rootViewController = self.nav
+        window?.makeKeyAndVisible()
+
+        fetchTopStories { [weak self] stories in
+            self?.viewModel.update(with: stories)
+        }
+    }
+
+    func fetchTopStories(completion: @escaping ([Story]) -> Void) {
+        newsService.fetchTopStoriesIDs { [weak self] ids in
+            guard let storyIDs = ids else {
+                completion([])
+                return
+            }
+
+            var stories = [Story]()
+            let g = DispatchGroup()
+
+            storyIDs.forEach { [weak self] id in
+                g.enter()
+                self?.newsService.fetchStory(with: id) { story in
+                    if let story = story {
+                        stories.append(story)
+                    }
+                    g.leave()
+                }
+            }
+
+            g.notify(queue: .global(), execute: {
+                completion(stories)
+            })
+        }
     }
 }

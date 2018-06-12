@@ -23,15 +23,7 @@ class Coordinator: Coordinability {
     }
 
     func start() {
-        guard let baseVC = BaseViewController.viewControllerFromStoryboard() as? BaseViewController else {
-            assertionFailure()
-            return
-        }
-
-        window?.rootViewController = baseVC
-        window?.makeKeyAndVisible()
-
-        let newsCoordinator = NewsCoordinator(baseVC: baseVC)
+        let newsCoordinator = NewsCoordinator(window: window)
         childCoordinators.append(newsCoordinator)
         newsCoordinator.start()
     }
