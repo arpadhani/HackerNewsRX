@@ -23,6 +23,8 @@
 		FC6402DC20C9CFC500D81B96 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402DB20C9CFC500D81B96 /* BaseTableViewController.swift */; };
 		FC6402DF20C9D54B00D81B96 /* NewsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402DE20C9D54B00D81B96 /* NewsTableViewModel.swift */; };
 		FC6402E120C9D56100D81B96 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402E020C9D56100D81B96 /* ItemCellViewModel.swift */; };
+		FCCBF8B820CB259E00C954E1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8B720CB259E00C954E1 /* Service.swift */; };
+		FCCBF8BA20CB264C00C954E1 /* HackerNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8B920CB264C00C954E1 /* HackerNewsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		FC6402DB20C9CFC500D81B96 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		FC6402DE20C9D54B00D81B96 /* NewsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewModel.swift; sourceTree = "<group>"; };
 		FC6402E020C9D56100D81B96 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
+		FCCBF8B720CB259E00C954E1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		FCCBF8B920CB264C00C954E1 /* HackerNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				FC6402B820C99F6300D81B96 /* AppDelegate.swift */,
+				FCCBF8B720CB259E00C954E1 /* Service.swift */,
+				FCCBF8B920CB264C00C954E1 /* HackerNewsService.swift */,
 				FC6402DD20C9D53800D81B96 /* ViewModels */,
 				FC6402D820C9C94C00D81B96 /* ViewControllers */,
 				FC6402D720C9C93800D81B96 /* Coordinators */,
@@ -245,15 +251,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HackerNewsApp/Pods-HackerNewsApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -283,12 +291,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC6402D420C9C82C00D81B96 /* NewsCoordinator.swift in Sources */,
+				FCCBF8B820CB259E00C954E1 /* Service.swift in Sources */,
 				FC6402BB20C99F6300D81B96 /* BaseViewController.swift in Sources */,
 				FC6402DC20C9CFC500D81B96 /* BaseTableViewController.swift in Sources */,
 				FC6402B920C99F6300D81B96 /* AppDelegate.swift in Sources */,
 				FC6402D220C9C65900D81B96 /* Coordinator.swift in Sources */,
 				FC6402E120C9D56100D81B96 /* ItemCellViewModel.swift in Sources */,
 				FC6402D620C9C87000D81B96 /* ItemDetailCoordinator.swift in Sources */,
+				FCCBF8BA20CB264C00C954E1 /* HackerNewsService.swift in Sources */,
 				FC6402CD20C9A76F00D81B96 /* ItemType.swift in Sources */,
 				FC6402CF20C9B19500D81B96 /* User.swift in Sources */,
 				FC6402CB20C9A6DA00D81B96 /* Items.swift in Sources */,
@@ -370,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -424,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -441,10 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UUBGRA383F;
 				INFOPLIST_FILE = HackerNewsApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raza.padhani.HackerNewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -460,10 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UUBGRA383F;
 				INFOPLIST_FILE = HackerNewsApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raza.padhani.HackerNewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
