@@ -49,7 +49,7 @@ final class NewsCoordinator: Coordinability {
             var stories = [Story]()
             let g = DispatchGroup()
 
-            storyIDs.prefix(10).forEach { [weak self] id in
+            storyIDs.forEach { [weak self] id in
                 g.enter()
                 self?.newsService.fetchStory(with: id) { story in
                     if let story = story {
@@ -70,6 +70,15 @@ extension NewsCoordinator: TableViewControllerDelegate {
     func tableViewControllerPulledToRefresh() {
         fetchTopStories { [weak self] stories in
             self?.viewModel.update(with: stories)
+        }
+    }
+
+    func userSelected(item: Item) {
+        if let story = item as? Story {
+            let webViewCoordinator = WebViewCoordinator(nav: nav, story: story)
+            childCoordinators.append(webViewCoordinator)
+
+            webViewCoordinator.start()
         }
     }
 }

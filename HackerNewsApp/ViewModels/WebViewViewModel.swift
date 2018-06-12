@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct WebViewViewModel {
+    let url: URL
+    let theme = Theme()
+    let title: String
+
+    init(story: Story) {
+        self.url = story.url
+        self.title = story.title
+    }
+}
