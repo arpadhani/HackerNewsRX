@@ -26,6 +26,8 @@ final class NewsCoordinator: Coordinability {
             return
         }
 
+        newsVC.delegate = self
+
         self.nav = UINavigationController(rootViewController: newsVC)
         newsVC.viewModel = viewModel
 
@@ -47,7 +49,7 @@ final class NewsCoordinator: Coordinability {
             var stories = [Story]()
             let g = DispatchGroup()
 
-            storyIDs.forEach { [weak self] id in
+            storyIDs.prefix(10).forEach { [weak self] id in
                 g.enter()
                 self?.newsService.fetchStory(with: id) { story in
                     if let story = story {
@@ -60,6 +62,14 @@ final class NewsCoordinator: Coordinability {
             g.notify(queue: .global(), execute: {
                 completion(stories)
             })
+        }
+    }
+}
+
+extension NewsCoordinator: TableViewControllerDelegate {
+    func tableViewControllerPulledToRefresh() {
+        fetchTopStories { [weak self] stories in
+            self?.viewModel.update(with: stories)
         }
     }
 }
