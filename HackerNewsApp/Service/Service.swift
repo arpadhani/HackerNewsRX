@@ -27,6 +27,6 @@ class Service {
                     print(error)
                     completion(nil)
                 }
-        }
+            }
     }
 }
