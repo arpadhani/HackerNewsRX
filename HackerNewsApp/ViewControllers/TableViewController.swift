@@ -12,6 +12,7 @@ import UIKit
 
 protocol TableViewControllerDelegate: class {
     func tableViewControllerPulledToRefresh()
+    func userSelected(item: Item)
 }
 
 final class TableViewController: BaseViewController {
@@ -27,6 +28,9 @@ final class TableViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = viewModel.title
+
         view.backgroundColor = viewModel.theme.backgroundColor
         navigationController?.navigationBar.backgroundColor = viewModel.theme.themeColor
 
@@ -37,11 +41,6 @@ final class TableViewController: BaseViewController {
         tableView.refreshControl = refreshControl
 
         bind()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     private func bind() {
@@ -62,8 +61,8 @@ final class TableViewController: BaseViewController {
 
         tableView.rx
             .modelSelected(Item.self)
-            .subscribe(onNext: { value in
-                print("Value")
+            .subscribe(onNext: { [weak self] value in
+                self?.delegate?.userSelected(item: value)
             })
             .disposed(by: bag)
 
