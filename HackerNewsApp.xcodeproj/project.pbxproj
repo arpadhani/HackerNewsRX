@@ -25,6 +25,14 @@
 		FC6402E120C9D56100D81B96 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6402E020C9D56100D81B96 /* ItemCellViewModel.swift */; };
 		FCCBF8B820CB259E00C954E1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8B720CB259E00C954E1 /* Service.swift */; };
 		FCCBF8BA20CB264C00C954E1 /* HackerNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8B920CB264C00C954E1 /* HackerNewsService.swift */; };
+		FCCBF8E020CF4DC900C954E1 /* StoryBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8DF20CF4DC900C954E1 /* StoryBase.swift */; };
+		FCCBF8E220CF4DE200C954E1 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8E120CF4DE200C954E1 /* Story.swift */; };
+		FCCBF8E420CF4DEF00C954E1 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8E320CF4DEF00C954E1 /* Ask.swift */; };
+		FCCBF8E620CF4DFD00C954E1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8E520CF4DFD00C954E1 /* Comment.swift */; };
+		FCCBF8E820CF4E0B00C954E1 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8E720CF4E0B00C954E1 /* Job.swift */; };
+		FCCBF8EA20CF4E2000C954E1 /* PollBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8E920CF4E2000C954E1 /* PollBase.swift */; };
+		FCCBF8EC20CF4E2F00C954E1 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8EB20CF4E2F00C954E1 /* Poll.swift */; };
+		FCCBF8EE20CF4E3B00C954E1 /* PollOpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBF8ED20CF4E3B00C954E1 /* PollOpt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +58,14 @@
 		FC6402E020C9D56100D81B96 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		FCCBF8B720CB259E00C954E1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FCCBF8B920CB264C00C954E1 /* HackerNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsService.swift; sourceTree = "<group>"; };
+		FCCBF8DF20CF4DC900C954E1 /* StoryBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBase.swift; sourceTree = "<group>"; };
+		FCCBF8E120CF4DE200C954E1 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		FCCBF8E320CF4DEF00C954E1 /* Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ask.swift; sourceTree = "<group>"; };
+		FCCBF8E520CF4DFD00C954E1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		FCCBF8E720CF4E0B00C954E1 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		FCCBF8E920CF4E2000C954E1 /* PollBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollBase.swift; sourceTree = "<group>"; };
+		FCCBF8EB20CF4E2F00C954E1 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		FCCBF8ED20CF4E3B00C954E1 /* PollOpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollOpt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +138,14 @@
 			children = (
 				FC6402CC20C9A76F00D81B96 /* ItemType.swift */,
 				FC6402CA20C9A6DA00D81B96 /* Items.swift */,
+				FCCBF8EB20CF4E2F00C954E1 /* Poll.swift */,
+				FCCBF8ED20CF4E3B00C954E1 /* PollOpt.swift */,
+				FCCBF8E920CF4E2000C954E1 /* PollBase.swift */,
+				FCCBF8E720CF4E0B00C954E1 /* Job.swift */,
+				FCCBF8E520CF4DFD00C954E1 /* Comment.swift */,
+				FCCBF8E320CF4DEF00C954E1 /* Ask.swift */,
+				FCCBF8E120CF4DE200C954E1 /* Story.swift */,
+				FCCBF8DF20CF4DC900C954E1 /* StoryBase.swift */,
 				FC6402CE20C9B19500D81B96 /* User.swift */,
 			);
 			path = Models;
@@ -297,13 +321,21 @@
 				FC6402B920C99F6300D81B96 /* AppDelegate.swift in Sources */,
 				FC6402D220C9C65900D81B96 /* Coordinator.swift in Sources */,
 				FC6402E120C9D56100D81B96 /* ItemCellViewModel.swift in Sources */,
+				FCCBF8E620CF4DFD00C954E1 /* Comment.swift in Sources */,
+				FCCBF8E220CF4DE200C954E1 /* Story.swift in Sources */,
 				FC6402D620C9C87000D81B96 /* ItemDetailCoordinator.swift in Sources */,
+				FCCBF8EE20CF4E3B00C954E1 /* PollOpt.swift in Sources */,
+				FCCBF8EC20CF4E2F00C954E1 /* Poll.swift in Sources */,
 				FCCBF8BA20CB264C00C954E1 /* HackerNewsService.swift in Sources */,
+				FCCBF8EA20CF4E2000C954E1 /* PollBase.swift in Sources */,
 				FC6402CD20C9A76F00D81B96 /* ItemType.swift in Sources */,
+				FCCBF8E020CF4DC900C954E1 /* StoryBase.swift in Sources */,
 				FC6402CF20C9B19500D81B96 /* User.swift in Sources */,
 				FC6402CB20C9A6DA00D81B96 /* Items.swift in Sources */,
 				FC6402DA20C9CB0A00D81B96 /* TableViewController.swift in Sources */,
 				FC6402DF20C9D54B00D81B96 /* NewsTableViewModel.swift in Sources */,
+				FCCBF8E420CF4DEF00C954E1 /* Ask.swift in Sources */,
+				FCCBF8E820CF4E0B00C954E1 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +483,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UUBGRA383F;
 				INFOPLIST_FILE = HackerNewsApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raza.padhani.HackerNewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -467,7 +502,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UUBGRA383F;
 				INFOPLIST_FILE = HackerNewsApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raza.padhani.HackerNewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
