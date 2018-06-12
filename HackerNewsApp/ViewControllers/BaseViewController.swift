@@ -6,9 +6,12 @@
 //  Copyright © 2018 Raza Padhani. All rights reserved.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
 class BaseViewController: UIViewController {
+    let bag = DisposeBag()
     static let storyboardName = "Main"
 
     override func viewDidLoad() {
@@ -22,7 +25,7 @@ class BaseViewController: UIViewController {
     }
 
     class func  viewControllerFromStoryboard() -> UIViewController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "\(self)Identifier")
         return viewController
     }

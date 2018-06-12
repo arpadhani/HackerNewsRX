@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 import UIKit
 
 class BaseTableViewController: UITableViewController {
+    let bag = DisposeBag()
     static let storyboardName = "Main"
 
     override func viewDidLoad() {
