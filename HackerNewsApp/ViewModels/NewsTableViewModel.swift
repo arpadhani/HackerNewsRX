@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 struct NewsTableViewModel {
-    let title = "Hacker News"
+    let title = "News"
     let theme = Theme()
     let items = Variable([Item]())
     let itemCellIdentifier = ItemTableViewCell.identifier
