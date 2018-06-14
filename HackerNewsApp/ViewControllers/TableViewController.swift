@@ -13,6 +13,7 @@ import UIKit
 protocol TableViewControllerDelegate: class {
     func tableViewControllerPulledToRefresh()
     func userSelected(item: Item)
+    func userScrolledToBottom()
 }
 
 final class TableViewController: BaseViewController {
@@ -74,6 +75,15 @@ final class TableViewController: BaseViewController {
                 self?.delegate?.tableViewControllerPulledToRefresh()
             })
             .disposed(by: bag)
+
+        tableView.rx.didScroll
+            .map { _ in self.tableView }
+            .subscribe { [weak self] _ in
+                guard let strongSelf = self else { return }
+                if ((strongSelf.tableView.contentOffset.y + strongSelf.tableView.frame.size.height) >= strongSelf.tableView.contentSize.height) {
+                    self?.delegate?.userScrolledToBottom()
+                }
+            }
     }
 }
 

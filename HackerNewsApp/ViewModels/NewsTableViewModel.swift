@@ -14,16 +14,17 @@ struct NewsTableViewModel {
     let theme = Theme()
     let items = Variable([Item]())
     let itemCellIdentifier = ItemTableViewCell.identifier
-    let cellsToRegister = [ItemTableViewCell.self]
     let rowHeight = UITableViewAutomaticDimension
     let estimatedRowHeight = CGFloat(200)
     let footerView = UIView()
-    
-    init(items: [Item] = []) {
-        self.items.value = items
+
+    init() {}
+
+    func refresh(with newItems: [Item]) {
+        items.value = newItems
     }
 
     func update(with newItems: [Item]) {
-        items.value = newItems
+        items.value.append(contentsOf: newItems)
     }
 }

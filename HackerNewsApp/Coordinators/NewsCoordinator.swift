@@ -16,6 +16,15 @@ final class NewsCoordinator: Coordinability {
     private var newsService = HackerNewsService()
     private var window: UIWindow?
 
+    // pagination
+    private var storyIDs = [Int]()
+    private var inFlight: Bool = false
+    private let limit: Int = 40
+    private var offset: Int = 0
+    private var totalCount: Int {
+        return storyIDs.count
+    }
+
     init(window: UIWindow?) {
         self.window = window
     }
@@ -34,42 +43,65 @@ final class NewsCoordinator: Coordinability {
         window?.rootViewController = self.nav
         window?.makeKeyAndVisible()
 
-        fetchTopStories { [weak self] stories in
-            self?.viewModel.update(with: stories)
+        newsService.fetchTopStoriesIDs { [weak self] ids in
+            self?.storyIDs = ids ?? []
+
+            self?.fetchNextStoriesIfNeeded { [weak self] newStories in
+                guard let newStories = newStories else { return }
+                self?.viewModel.update(with: newStories)
+            }
         }
     }
 
-    func fetchTopStories(completion: @escaping ([Story]) -> Void) {
-        newsService.fetchTopStoriesIDs { [weak self] ids in
-            guard let storyIDs = ids else {
-                completion([])
-                return
-            }
-
-            var stories = [Story]()
-            let g = DispatchGroup()
-
-            storyIDs.forEach { [weak self] id in
-                g.enter()
-                self?.newsService.fetchStory(with: id) { story in
-                    if let story = story {
-                        stories.append(story)
-                    }
-                    g.leave()
-                }
-            }
-
-            g.notify(queue: .global(), execute: {
-                completion(stories)
-            })
+    private func fetchNextStoriesIfNeeded(completion: @escaping ([Story]?) -> Void) {
+        guard inFlight == false, offset < totalCount else {
+            completion(nil)
+            return
         }
+
+        var newStories = [Story]()
+        let g = DispatchGroup()
+
+        inFlight = true
+
+        nextBatchOfStoryIDs().forEach { [weak self] id in
+            g.enter()
+            self?.newsService.fetchStory(with: id) { story in
+                if let story = story {
+                    newStories.append(story)
+                }
+                g.leave()
+            }
+        }
+
+        g.notify(queue: .global(), execute: { [weak self] in
+            self?.inFlight = false
+            completion(newStories)
+        })
+    }
+
+    private func nextBatchOfStoryIDs() -> [Int] {
+        let previousOffset = offset
+
+        let batchCount = (totalCount - offset > limit) ? limit : totalCount - offset
+        offset += batchCount
+
+        let storyIDsSlice = storyIDs[previousOffset..<offset]
+        return Array(storyIDsSlice)
     }
 }
 
 extension NewsCoordinator: TableViewControllerDelegate {
     func tableViewControllerPulledToRefresh() {
-        fetchTopStories { [weak self] stories in
-            self?.viewModel.update(with: stories)
+        newsService.fetchTopStoriesIDs { [weak self] ids in
+            self?.storyIDs = ids ?? []
+
+            self?.offset = 0
+
+            self?.fetchNextStoriesIfNeeded { [weak self] newStories in
+                guard let newStories = newStories else { return }
+                self?.viewModel.refresh(with: newStories)
+            }
         }
     }
 
@@ -79,6 +111,13 @@ extension NewsCoordinator: TableViewControllerDelegate {
             childCoordinators.append(webViewCoordinator)
 
             webViewCoordinator.start()
+        }
+    }
+
+    func userScrolledToBottom() {
+        fetchNextStoriesIfNeeded { [weak self] newStories in
+            guard let newStories = newStories else { return }
+            self?.viewModel.update(with: newStories)
         }
     }
 }
