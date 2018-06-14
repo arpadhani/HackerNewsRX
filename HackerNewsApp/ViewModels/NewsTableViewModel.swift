@@ -15,7 +15,7 @@ struct NewsTableViewModel {
     let items = Variable([Item]())
     let itemCellIdentifier = ItemTableViewCell.identifier
     let rowHeight = UITableViewAutomaticDimension
-    let estimatedRowHeight = CGFloat(200)
+    let estimatedRowHeight = CGFloat(44)
     let footerView = UIView()
 
     init() {}

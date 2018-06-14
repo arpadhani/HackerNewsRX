@@ -10,10 +10,11 @@ import Foundation
 import RxSwift
 import UIKit
 
+// TableViewControllerDelegate using non-standard delegate naming pattern otherwise we would need to unwarp `self` for only this purpose.
 protocol TableViewControllerDelegate: class {
     func tableViewControllerPulledToRefresh()
     func userSelected(item: Item)
-    func userScrolledToBottom()
+    func userScrolledApproachingBottom()
 }
 
 final class TableViewController: BaseViewController {
@@ -80,8 +81,8 @@ final class TableViewController: BaseViewController {
             .map { _ in self.tableView }
             .subscribe { [weak self] _ in
                 guard let strongSelf = self else { return }
-                if ((strongSelf.tableView.contentOffset.y + strongSelf.tableView.frame.size.height) >= strongSelf.tableView.contentSize.height) {
-                    self?.delegate?.userScrolledToBottom()
+                if ((strongSelf.tableView.contentOffset.y + strongSelf.tableView.frame.size.height) >= (strongSelf.tableView.contentSize.height - 100)) {
+                    self?.delegate?.userScrolledApproachingBottom()
                 }
             }
     }

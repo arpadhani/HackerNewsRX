@@ -19,7 +19,7 @@ final class NewsCoordinator: Coordinability {
     // pagination
     private var storyIDs = [Int]()
     private var inFlight: Bool = false
-    private let limit: Int = 40
+    private let limit: Int = 20 // stories
     private var offset: Int = 0
     private var totalCount: Int {
         return storyIDs.count
@@ -114,7 +114,7 @@ extension NewsCoordinator: TableViewControllerDelegate {
         }
     }
 
-    func userScrolledToBottom() {
+    func userScrolledApproachingBottom() {
         fetchNextStoriesIfNeeded { [weak self] newStories in
             guard let newStories = newStories else { return }
             self?.viewModel.update(with: newStories)
