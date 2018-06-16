@@ -9,16 +9,21 @@
 import Foundation
 import RxSwift
 
-struct NewsTableViewModel {
-    let title = "News"
-    let theme = Theme()
+class NewsTableViewModel {
+    // Observed at the Coordinator level.
+    var theme: Observable<ThemeType>
+
     let items = Variable([Item]())
     let itemCellIdentifier = ItemTableViewCell.identifier
     let rowHeight = UITableViewAutomaticDimension
     let estimatedRowHeight = CGFloat(44)
     let footerView = UIView()
 
-    init() {}
+    init(theme: Variable<(ThemeType)>) {
+        self.theme = theme.asObservable()
+
+    }
+    }
 
     func refresh(with newItems: [Item]) {
         items.value = newItems

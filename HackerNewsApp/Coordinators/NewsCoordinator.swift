@@ -24,9 +24,12 @@ final class NewsCoordinator: Coordinability {
     private var totalCount: Int {
         return storyIDs.count
     }
+    private let theme: Variable<ThemeType>
 
-    init(window: UIWindow?) {
+
+    init(window: UIWindow?, theme: Variable<ThemeType>) {
         self.window = window
+        self.theme = theme
     }
 
     func start() {
@@ -39,6 +42,7 @@ final class NewsCoordinator: Coordinability {
 
         self.nav = UINavigationController(rootViewController: newsVC)
         newsVC.viewModel = viewModel
+        let newViewModel = NewsTableViewModel(theme: theme)
 
         window?.rootViewController = self.nav
         window?.makeKeyAndVisible()
@@ -49,6 +53,10 @@ final class NewsCoordinator: Coordinability {
             self?.fetchNextStoriesIfNeeded { [weak self] newStories in
                 guard let newStories = newStories else { return }
                 self?.viewModel.update(with: newStories)
+        theme.asObservable()
+            .subscribe { [weak self] type in
+                self?.newsViewController?.navigationController?.navigationBar.backgroundColor = type.element?.themeColor
+                self?.newsViewController?.themeButton.title = type.element?.oppositeTitle
             }
         }
     }
@@ -88,6 +96,7 @@ final class NewsCoordinator: Coordinability {
 
         let storyIDsSlice = storyIDs[previousOffset..<offset]
         return Array(storyIDsSlice)
+            .disposed(by: bag)
     }
 }
 
@@ -107,7 +116,7 @@ extension NewsCoordinator: TableViewControllerDelegate {
 
     func userSelected(item: Item) {
         if let story = item as? Story {
-            let webViewCoordinator = WebViewCoordinator(nav: nav, story: story)
+            let webViewCoordinator = WebViewCoordinator(nav: nav, story: story, theme: theme)
             childCoordinators.append(webViewCoordinator)
 
             webViewCoordinator.start()
@@ -119,5 +128,7 @@ extension NewsCoordinator: TableViewControllerDelegate {
             guard let newStories = newStories else { return }
             self?.viewModel.update(with: newStories)
         }
+    func userSelectedThemeSwap() {
+        theme.value = theme.value == .light ? .dark : .light
     }
 }

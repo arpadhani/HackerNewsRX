@@ -7,14 +7,19 @@
 //
 
 import Foundation
+import RxSwift
 
-struct WebViewViewModel {
+class WebViewViewModel {
+    // Observed at the Coordinator level.
+    var theme: Observable<ThemeType>
+
     let url: URL
-    let theme = Theme()
     let title: String
 
-    init(story: Story) {
+    init(story: Story, theme: Variable<(ThemeType)>) {
         self.url = story.url
         self.title = story.title
+
+        self.theme = theme.asObservable()
     }
 }

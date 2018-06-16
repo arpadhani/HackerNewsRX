@@ -24,19 +24,16 @@ final class TableViewController: BaseViewController {
     weak var delegate: TableViewControllerDelegate?
 
     var viewModel: NewsTableViewModel! // dependency
-    var datasource: Observable<([Item])> {
-        return viewModel.items.asObservable()
-    }
+
+    var themeButton = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = viewModel.title
 
-        view.backgroundColor = viewModel.theme.backgroundColor
-        navigationController?.navigationBar.backgroundColor = viewModel.theme.themeColor
+        navigationItem.rightBarButtonItem = themeButton
 
-        tableView.backgroundColor = viewModel.theme.backgroundColor
         tableView.rowHeight = viewModel.rowHeight
         tableView.estimatedRowHeight = viewModel.estimatedRowHeight
         tableView.tableFooterView = viewModel.footerView
@@ -46,8 +43,20 @@ final class TableViewController: BaseViewController {
     }
 
     private func bind() {
+        // Theme
+        themeButton.rx.tap
+            .subscribe { [weak self] _ in
+                self?.delegate?.userSelectedThemeSwap()
+            }.disposed(by: bag)
+
+        viewModel.theme
+            .subscribe { [weak self] type in
+                self?.view.backgroundColor = type.element?.backgroundColor
+                self?.tableView.backgroundColor = type.element?.backgroundColor
+            }
+
         // TableView
-        datasource
+        viewModel.items.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: ItemTableViewCell.identifier, cellType: ItemTableViewCell.self)) { row, element, cell in
                 DispatchQueue.main.async { [weak self] in
                     if let refresh = self?.refreshControl, refresh.isRefreshing {

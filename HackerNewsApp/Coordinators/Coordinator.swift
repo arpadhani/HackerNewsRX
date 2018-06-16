@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 import UIKit
 
 protocol Coordinability {
@@ -15,6 +16,7 @@ protocol Coordinability {
 }
 
 class Coordinator: Coordinability {
+    private let theme = Variable<ThemeType>(.light)
     private var window: UIWindow?
     var childCoordinators: [Coordinability] = []
 

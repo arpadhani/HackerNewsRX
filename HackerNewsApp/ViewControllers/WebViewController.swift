@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 import WebKit
 
 final class WebViewController: BaseViewController {
@@ -18,8 +19,10 @@ final class WebViewController: BaseViewController {
         super.viewDidLoad()
         title = viewModel.title
 
-        view.backgroundColor = viewModel.theme.backgroundColor
-        navigationController?.navigationBar.backgroundColor = viewModel.theme.themeColor
+        viewModel.theme
+            .subscribe { [weak self] type in
+                self?.view.backgroundColor = type.element?.backgroundColor
+            }
 
         let request = URLRequest(url: viewModel.url)
         webView.load(request)
