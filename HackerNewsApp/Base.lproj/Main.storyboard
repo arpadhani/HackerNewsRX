@@ -92,17 +92,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsd-hK-PR4">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJ0-ke-svX">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mKd-V5-Oe8"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="flexibleSpace" id="1dC-X6-Aje"/>
+                                    <barButtonItem title="&lt;" id="f9u-km-j7B"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="uT8-nj-NUj"/>
+                                    <barButtonItem title="&gt;" id="gbW-Vp-6mI"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="Mg2-sL-UYd"/>
+                                    <barButtonItem systemItem="refresh" id="2US-32-YrH"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="rRP-0z-H0S"/>
+                                    <barButtonItem systemItem="action" id="vNe-ph-xdW"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="Wci-Qt-RdZ"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dBH-gs-ff6" firstAttribute="bottom" secondItem="Tsd-hK-PR4" secondAttribute="bottom" id="0bT-65-DdR"/>
+                            <constraint firstItem="GJ0-ke-svX" firstAttribute="top" secondItem="Tsd-hK-PR4" secondAttribute="bottom" id="3k2-1V-twY"/>
+                            <constraint firstItem="GJ0-ke-svX" firstAttribute="bottom" secondItem="dBH-gs-ff6" secondAttribute="bottom" id="5Ud-rf-jYg"/>
+                            <constraint firstItem="GJ0-ke-svX" firstAttribute="trailing" secondItem="dBH-gs-ff6" secondAttribute="trailing" id="Egn-jG-rLW"/>
+                            <constraint firstItem="GJ0-ke-svX" firstAttribute="leading" secondItem="dBH-gs-ff6" secondAttribute="leading" id="Mvm-TS-z3O"/>
                             <constraint firstItem="Tsd-hK-PR4" firstAttribute="top" secondItem="dBH-gs-ff6" secondAttribute="top" id="X2w-nh-zWC"/>
                             <constraint firstItem="dBH-gs-ff6" firstAttribute="trailing" secondItem="Tsd-hK-PR4" secondAttribute="trailing" id="d4z-JP-Kl3"/>
                             <constraint firstItem="Tsd-hK-PR4" firstAttribute="leading" secondItem="dBH-gs-ff6" secondAttribute="leading" id="uPD-sn-p0K"/>
@@ -110,12 +130,16 @@
                         <viewLayoutGuide key="safeArea" id="dBH-gs-ff6"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="f9u-km-j7B" id="hMw-4Y-b2k"/>
+                        <outlet property="forwardButton" destination="gbW-Vp-6mI" id="tjo-yR-jbl"/>
+                        <outlet property="refreshButton" destination="2US-32-YrH" id="N6I-Qb-FYQ"/>
+                        <outlet property="shareButton" destination="vNe-ph-xdW" id="i3i-Ft-P04"/>
                         <outlet property="webView" destination="Tsd-hK-PR4" id="VBb-Hr-SKU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEb-fO-Yxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740" y="142"/>
+            <point key="canvasLocation" x="1740" y="141.67916041979012"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="yVr-zS-fPP">
