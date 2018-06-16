@@ -28,7 +28,7 @@ final class WebViewController: BaseViewController {
         viewModel.theme
             .subscribe { [weak self] type in
                 self?.view.backgroundColor = type.element?.backgroundColor
-            }
+            }.disposed(by: bag)
 
         backButton.rx.tap
             .subscribe { [weak self] _ in

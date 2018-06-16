@@ -52,7 +52,7 @@ final class TableViewController: BaseViewController {
             .subscribe { [weak self] type in
                 self?.view.backgroundColor = type.element?.backgroundColor
                 self?.tableView.backgroundColor = type.element?.backgroundColor
-            }
+            }.disposed(by: bag)
 
         // TableView
         viewModel.items.asObservable()
@@ -92,7 +92,7 @@ final class TableViewController: BaseViewController {
                 if ((strongSelf.tableView.contentOffset.y + strongSelf.tableView.frame.size.height) >= (strongSelf.tableView.contentSize.height - 100)) {
                     self?.viewModel.userScrolledApproachingBottom()
                 }
-            }
+            }.disposed(by: bag)
     }
 }
 
