@@ -12,9 +12,8 @@ import UIKit
 
 // TableViewControllerDelegate using non-standard delegate naming pattern otherwise we would need to unwarp `self` for only this purpose.
 protocol TableViewControllerDelegate: class {
-    func tableViewControllerPulledToRefresh()
     func userSelected(item: Item)
-    func userScrolledApproachingBottom()
+    func userSelectedThemeSwap()
 }
 
 final class TableViewController: BaseViewController {
@@ -82,7 +81,7 @@ final class TableViewController: BaseViewController {
             .map { _ in !self.refreshControl.isRefreshing }
             .filter { $0 == false }
             .subscribe(onNext: { [weak self] _ in
-                self?.delegate?.tableViewControllerPulledToRefresh()
+                self?.viewModel.tableViewControllerPulledToRefresh()
             })
             .disposed(by: bag)
 
@@ -91,7 +90,7 @@ final class TableViewController: BaseViewController {
             .subscribe { [weak self] _ in
                 guard let strongSelf = self else { return }
                 if ((strongSelf.tableView.contentOffset.y + strongSelf.tableView.frame.size.height) >= (strongSelf.tableView.contentSize.height - 100)) {
-                    self?.delegate?.userScrolledApproachingBottom()
+                    self?.viewModel.userScrolledApproachingBottom()
                 }
             }
     }
