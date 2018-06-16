@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private(set) var rootCoorinator: Coordinability!
+    private(set) var rootCoorinator: Coordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
 
         rootCoorinator = Coordinator(window: window)
-        rootCoorinator.start()
+        rootCoorinator.showNews()
 
         return true
     }

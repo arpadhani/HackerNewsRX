@@ -23,7 +23,11 @@ class Coordinator: Coordinability {
     }
 
     func start() {
-        let newsCoordinator = NewsCoordinator(window: window)
+        // no-op
+    }
+
+    func showNews() {
+        let newsCoordinator = NewsCoordinator(window: window, theme: theme)
         childCoordinators.append(newsCoordinator)
         newsCoordinator.start()
     }
