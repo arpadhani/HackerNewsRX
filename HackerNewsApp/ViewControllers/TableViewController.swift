@@ -62,8 +62,17 @@ final class TableViewController: BaseViewController {
                         self?.refreshControl.endRefreshing()
                     }
 
-                    if let story = element as? Story {
-                        cell.titleLabel?.text = story.title
+                    switch element {
+                    case let story as Story:
+                        cell.titleLabel.text = story.title
+                        cell.detailLabel?.text = "by: \(story.username)   points: \(story.score)   comments: \(story.descendants)"
+                    case let ask as Ask:
+                        cell.titleLabel.text = "\(ask.title): \(ask.text)"
+                        cell.detailLabel?.text = "by: \(ask.username)   points: \(ask.score)   comments: \(ask.descendants)"
+                    case let job as Job:
+                        cell.titleLabel.text = "\(job.title): \(job.text)"
+                        cell.detailLabel?.text = "by: \(job.username)   points: \(job.score)"
+                    default: break
                     }
                 }
             }

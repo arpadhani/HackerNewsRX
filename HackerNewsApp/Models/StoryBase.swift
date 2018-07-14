@@ -11,8 +11,8 @@ import SwiftyJSON
 
 class StoryBase: Item {
     let username: String
-    let descendants: Int
-    let score: Int
+    let descendants: Int // total number of comments
+    let score: Int // points
     let title: String
 
     override init?(json: JSON) {

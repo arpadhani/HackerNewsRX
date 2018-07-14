@@ -12,4 +12,5 @@ final class ItemTableViewCell: UITableViewCell, Registerable {
     static var identifier = "ItemTableViewCellIdentifier"
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
 }

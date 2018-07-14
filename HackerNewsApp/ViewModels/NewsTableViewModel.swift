@@ -30,7 +30,7 @@ class NewsTableViewModel {
     let title = "News"
     let itemCellIdentifier = ItemTableViewCell.identifier
     let rowHeight = UITableViewAutomaticDimension
-    let estimatedRowHeight = CGFloat(44)
+    let estimatedRowHeight = CGFloat(80)
     let footerView = UIView()
 
     init(theme: Variable<(ThemeType)>) {
@@ -46,22 +46,22 @@ class NewsTableViewModel {
         }
     }
 
-    private func fetchNextStoriesIfNeeded(completion: @escaping ([Story]?) -> Void) {
+    private func fetchNextStoriesIfNeeded(completion: @escaping ([Item]?) -> Void) {
         guard inFlight == false, offset < totalCount else {
             completion(nil)
             return
         }
 
-        var newStories = [Story]()
+        var newItems = [Item]()
         let g = DispatchGroup()
 
         inFlight = true
 
         nextBatchOfStoryIDs().forEach { [weak self] id in
             g.enter()
-            self?.newsService.fetchStory(with: id) { story in
-                if let story = story {
-                    newStories.append(story)
+            self?.newsService.fetchStory(with: id) { item in
+                if let newItem = item {
+                    newItems.append(newItem)
                 }
                 g.leave()
             }
@@ -69,7 +69,7 @@ class NewsTableViewModel {
 
         g.notify(queue: .global(), execute: { [weak self] in
             self?.inFlight = false
-            completion(newStories)
+            completion(newItems)
         })
     }
 

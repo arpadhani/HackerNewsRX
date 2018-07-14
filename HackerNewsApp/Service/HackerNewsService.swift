@@ -40,14 +40,32 @@ enum HackerNewsURI {
 }
 
 class HackerNewsService: Service {
-    func fetchStory(with storyID: Int, completion: @escaping (Story?) -> Void) {
+    func fetchStory(with storyID: Int, completion: @escaping (Item?) -> Void) {
         fetch(.story(item: storyID)) { json in
-            guard let json = json else {
+            guard
+                let json = json,
+                let type = json["type"].string,
+                let itemType = ItemType(rawValue: type)
+            else {
                 completion(nil)
                 return
             }
 
-            completion(Story(json: json))
+            switch itemType {
+            case .comment, .pollOpt:
+                assertionFailure() // these shouldn't exist at the story level/hierarchy
+            case .poll:
+                let p = Poll(json: json)
+                completion(nil)
+            case .job:
+                completion(Job(json: json))
+            case .story:
+                if json["url"].string == "" {
+                    completion(Ask(json: json))
+                } else {
+                    completion(Story(json: json))
+                }
+            }
         }
     }
 

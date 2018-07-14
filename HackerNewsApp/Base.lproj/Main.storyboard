@@ -45,7 +45,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzP-Yy-0Tl">
-                                                    <rect key="frame" x="23" y="19" width="329" height="96"/>
+                                                    <rect key="frame" x="23" y="19" width="329" height="75"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb8-7L-HcF">
+                                                    <rect key="frame" x="23" y="102" width="329" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="4ZD-aM-Lbn"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,12 +63,16 @@
                                             <constraints>
                                                 <constraint firstItem="TzP-Yy-0Tl" firstAttribute="top" secondItem="ut6-0C-dpE" secondAttribute="topMargin" constant="8" id="2bL-Oz-M1c"/>
                                                 <constraint firstItem="TzP-Yy-0Tl" firstAttribute="leading" secondItem="ut6-0C-dpE" secondAttribute="leadingMargin" constant="8" id="8UW-kR-6oT"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TzP-Yy-0Tl" secondAttribute="bottom" constant="8" id="SW2-OR-kda"/>
+                                                <constraint firstItem="Jb8-7L-HcF" firstAttribute="top" secondItem="TzP-Yy-0Tl" secondAttribute="bottom" constant="8" id="akV-ho-GwR"/>
+                                                <constraint firstItem="Jb8-7L-HcF" firstAttribute="bottom" secondItem="ut6-0C-dpE" secondAttribute="bottomMargin" id="cCh-e2-kuO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TzP-Yy-0Tl" secondAttribute="trailing" constant="8" id="fPe-jE-Oub"/>
+                                                <constraint firstItem="Jb8-7L-HcF" firstAttribute="leading" secondItem="ut6-0C-dpE" secondAttribute="leadingMargin" constant="8" id="n0q-m9-GGG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jb8-7L-HcF" secondAttribute="trailing" constant="8" id="u9n-49-9mi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="detailLabel" destination="Jb8-7L-HcF" id="cnT-Jc-k79"/>
                                             <outlet property="titleLabel" destination="TzP-Yy-0Tl" id="bDa-yX-Cjv"/>
                                         </connections>
                                     </tableViewCell>
